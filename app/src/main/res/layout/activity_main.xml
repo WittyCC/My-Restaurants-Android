@@ -10,7 +10,7 @@
     tools:layout_editor_absoluteX="0dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/findRestaurantsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find Restaurants"
