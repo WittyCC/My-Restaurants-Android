@@ -11,13 +11,18 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Find Restaurants"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="539dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/textView"
@@ -25,12 +30,9 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="36sp"
+        android:textSize="40sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="16dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp" />
-
 </RelativeLayout>
