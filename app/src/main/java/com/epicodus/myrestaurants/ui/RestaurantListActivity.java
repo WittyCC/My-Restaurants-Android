@@ -5,10 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.adapters.RestaurantListAdapter;
@@ -24,8 +20,8 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class RestaurantsActivity extends AppCompatActivity {
-    public static final String TAG = RestaurantsActivity.class.getSimpleName();
+public class RestaurantListActivity extends AppCompatActivity {
+    public static final String TAG = RestaurantListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private RestaurantListAdapter mAdapter;
@@ -64,7 +60,7 @@ public class RestaurantsActivity extends AppCompatActivity {
 //            @Override
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                String restaurant = ((TextView)view).getText().toString();
-//                Toast.makeText(RestaurantsActivity.this, restaurant, Toast.LENGTH_LONG).show();
+//                Toast.makeText(RestaurantListActivity.this, restaurant, Toast.LENGTH_LONG).show();
 ////                Log.v(TAG, "In the onItemClickListener!");
 //            }
 //        });
@@ -89,13 +85,13 @@ public class RestaurantsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mRestaurants = yelpService.processResults(response);
 
-                RestaurantsActivity.this.runOnUiThread(new Runnable() {
+                RestaurantListActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
                         mAdapter = new RestaurantListAdapter(getApplicationContext(), mRestaurants);
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RestaurantsActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RestaurantListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
 //                        String[] restaurantNames = new String[mRestaurants.size()];
@@ -103,7 +99,7 @@ public class RestaurantsActivity extends AppCompatActivity {
 //                            restaurantNames[i] = mRestaurants.get(i).getName();
 //                        }
 //
-//                        ArrayAdapter adapter = new ArrayAdapter(RestaurantsActivity.this,
+//                        ArrayAdapter adapter = new ArrayAdapter(RestaurantListActivity.this,
 //                                android.R.layout.simple_list_item_1, restaurantNames);
 //                        mListView.setAdapter(adapter);
 //
