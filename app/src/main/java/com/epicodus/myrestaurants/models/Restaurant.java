@@ -18,6 +18,8 @@ public class Restaurant {
 
     public Restaurant() {}
 
+//    public Restaurant(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, ArrayList<String> categories) {
+
     public Restaurant(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
                       double latitude, double longitude, ArrayList<String> categories) {
@@ -25,7 +27,8 @@ public class Restaurant {
         this.mPhone = phone;
         this.mWebsite = website;
         this.mRating = rating;
-        this.mImageUrl = imageUrl;
+//        this.mImageUrl = imageUrl;
+        this.mImageUrl = getLargeImageUrl(imageUrl);
         this.mAddress = address;
         this.mLatitude = latitude;
         this.mLongitude = longitude;
@@ -52,6 +55,11 @@ public class Restaurant {
         return mImageUrl;
     }
 
+    public String getLargeImageUrl(String imageUrl) {
+        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+        return largeImageUrl;
+    }
+
     public ArrayList<String> getAddress() {
         return mAddress;
     }
@@ -68,6 +76,7 @@ public class Restaurant {
         return mCategories;
     }
 }
+
 //public class Restaurant {
 //    private String mName;
 //    private String mPhone;
